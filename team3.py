@@ -8,7 +8,7 @@
 
 team_name = 'Team Fatha' # Only 10 chars displayed.
 strategy_name = 'Keep word unless interacting with not a man at all'
-strategy_description = 'Collude first round, then if opponent betrayed on previous round check points. If points negative then collude. If positive betray. Else collude'
+strategy_description = 'Collude first round, then if opponent betrayed on previous round we betray. Unless there were two betrayals in a row in first three moves we collude.'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
