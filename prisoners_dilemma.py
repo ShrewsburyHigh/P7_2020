@@ -42,9 +42,9 @@ import team10, team11, team12, team13, team14
 betray = example1
 collude = example0
 
-modules = [example1,example0,
-team0, team1, team2, team3, team4, team5, team6, team7, team8, team9, team10, 
-team11, team12, team13, team14]
+modules = [
+team0, team1, team2, team3, team4, team5, team6]#, team7, team8, team9, team10, 
+#team11, team12, team13, team14]
 for module in modules:
     reload(module)
     print ('reloaded',module)
@@ -125,8 +125,8 @@ def play_round(player1, player2, score1, score2, moves1, moves2):
     Returns a 2-tuple with score1 and score2 incremented by this round
     '''
     
-    RELEASE = 0 # (R, "reward" in literature) when both players collude
-    TREAT = 100 # (T, "temptation" in literature) when you betray your partner
+    RELEASE = 100 # (R, "reward" in literature) when both players collude
+    TREAT = 250 # (T, "temptation" in literature) when you betray your partner
     SEVERE_PUNISHMENT = -500 # (S, "sucker" in literature) when your partner betrays you
     PUNISHMENT = -250 # (P) when both players betray each other
     
@@ -379,5 +379,5 @@ def post_to_file(string, filename='tournament.txt', directory=''):
  
 ### Call main_play() if this file is executed
 if __name__ == '__main__':
-    scores, moves, reports = main_play(modules[0:17])   
+    scores, moves, reports = main_play(modules[0:7])   
     section0, section1, section2, section3 = reports
