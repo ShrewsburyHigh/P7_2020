@@ -6,9 +6,9 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'Team Betrayal' # Only 10 chars displayed.
-strategy_name = 'Betray if pattern, otherwise collude'
-strategy_description = 'First 5 collude; if pattern of 2 betray or collude in a row in the past 5 moves, betray; otherwise collude'
+team_name = 'Team Fatha' # Only 10 chars displayed.
+strategy_name = 'Keep word unless interacting with not a man at all'
+strategy_description = 'Collude first round, then if opponent betrayed on previous round we betray. Unless there were two betrayals in a row in first three moves we collude.'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -25,14 +25,20 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
-    if len(my_history) < 5:
+    if len(my_history)==0:
         return "c"
-    elif "cc" in their_history [-6: -1]:
-        return "b"
-    elif "bb" in their_history [-6: -1]:
-        return "b"
+    elif len(their_history)>=3:
+        if "b" not in their_history:
+            return "b"
+        elif their_history[-1]=="b":   
+            return "b"
+        else: 
+            return "c"
     else:
-        return "c"
+        if "bb" in their_history:
+            return "b"
+        else:
+            return "c"
 
 
     
