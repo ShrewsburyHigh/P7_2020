@@ -43,7 +43,7 @@ if __name__ == '__main__':
               result='betray'):
          print 'Test passed'
      # Test 2: Continue betraying if they collude despite being betrayed.
-    test_move(my_history='bbb',
+    test_move(my_history='bcbc',
               their_history='ccc', 
               # Note the scores are for testing move().
               # The history and scores don't need to match unless
