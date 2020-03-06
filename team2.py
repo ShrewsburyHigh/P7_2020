@@ -7,10 +7,10 @@
 ####
 
 team_name = "HN" # Only 10 chars displayed.
-strategy_name = "I'm nice until you cross me."
+strategy_name = "we are not sure."
 strategy_description = "We collude except when we've been severely punished."
     
-def move(my_history, their_history, my_score, their_score):
+def move4(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
     
@@ -53,7 +53,7 @@ def move2(my_history, their_history, my_score, their_score):
     elif len(my_history) < 5 or b_history < 3 : # It's the first round; collude.
         return 'c'
         
-def move3(my_history, their_history, my_score, their_score):
+def move(my_history, their_history, my_score, their_score):
     b_history = 0
     for x in their_history:
         if x == 'b':    
