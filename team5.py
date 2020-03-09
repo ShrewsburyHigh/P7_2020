@@ -1,6 +1,6 @@
 team_name = 'Habeeb' # Only 10 chars displayed.
 strategy_name = 'Golden Balls'
-strategy_description = "We betray, we collude, we repeat."
+strategy_description = "We betray. we collude, we repeat."
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -10,12 +10,12 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b'. 
     '''
     
-    if len(my_history)==0: # It's the first round; collude.
-        return 'betray'    
-    elif 'collude' in their_history:
-        return 'betray'
+    if len(my_history)==0: # It's the first round; betray.
+        return 'b'    
+    if 'c' in their_history:
+        return 'b'
     else:
-        return 'collude'
+        return 'c'
     
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
@@ -40,11 +40,11 @@ if __name__ == '__main__':
               their_history='', 
               my_score=0,
               their_score=0,
-              result='betray'):
+              result='b'):
          print 'Test passed'
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bcbc',
-              their_history='ccc', 
+              their_history='cccc', 
               # Note the scores are for testing move().
               # The history and scores don't need to match unless
               # that is relevant to the test of move(). Here,
@@ -53,4 +53,4 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='collude')             
+              result='b')             
