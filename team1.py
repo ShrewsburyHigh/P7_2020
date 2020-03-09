@@ -8,8 +8,8 @@ from __future__ import print_function
 ####
 
 team_name = "Amina"  # Only 10 chars displayed.
-strategy_name = 'intricate'
-strategy_description = 'depending on their history'
+strategy_name = 'hello'
+strategy_description = 'depending on their score'
    
     
 import random 
@@ -19,15 +19,16 @@ def move(my_history, their_history, my_score, their_score):
         return 'b'
     
     else: 
-        r= random.randint(1,1000)
-        if r==5:
+        if (their_score)<=100:
             return 'c'
         else:
             return 'b'
-    if (their_score)<=100:
-        return 'b'
-    else:
-        return 'c'    
+        r= random.randint(1,1000)
+        if r==5:
+                return 'c'
+        else:
+            return 'b'
+    
     
 
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
