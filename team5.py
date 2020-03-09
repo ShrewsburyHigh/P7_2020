@@ -12,10 +12,10 @@ def move(my_history, their_history, my_score, their_score):
     
     if len(my_history)==0: # It's the first round; betray.
         return 'b'    
-    if 'c' in their_history:
-        return 'b'
-    else:
+    elif my_history[-1]=='b':
         return 'c'
+    else:
+        return 'b'
     
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
@@ -53,4 +53,4 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='b')             
+              result='c')             
