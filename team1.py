@@ -11,23 +11,15 @@ team_name = "Amina"  # Only 10 chars displayed.
 strategy_name = 'hello'
 strategy_description = 'depending on their score'
    
-    
-import random 
   
 def move(my_history, their_history, my_score, their_score): 
-    if len(my_history)==5:
+    if len(my_history)<=5:
         return 'b'
-    
-    else: 
-        if (their_score)<=100:
-            return 'c'
-        else:
-            return 'b'
-        r= random.randint(1,1000)
-        if r==5:
-                return 'c'
-        else:
-            return 'b'
+    elif (their_score)<=100:
+        return 'c'
+    else:
+        return 'b'
+     
     
     
 
