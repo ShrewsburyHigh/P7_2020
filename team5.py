@@ -1,4 +1,4 @@
-team_name = 'Habeeb' # Only 10 chars displayed.
+team_name = 'Habeeb' 
 strategy_name = 'Golden Balls'
 strategy_description = "We betray. we collude, we repeat."
     
