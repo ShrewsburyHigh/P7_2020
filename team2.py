@@ -6,11 +6,11 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = "East-West" # Only 10 chars displayed.
-strategy_name = "I'm nice until you cross me."
+team_name = "HN" # Only 10 chars displayed.
+strategy_name = "we are not sure."
 strategy_description = "We collude except when we've been severely punished."
     
-def move(my_history, their_history, my_score, their_score):
+def move4(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
     
@@ -26,13 +26,51 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    if len(my_history) == 0: # It's the first round; collude.
+    '''if len(my_history) == 0: # It's the first round; collude.
         return 'c'
     else:
         if my_history[-1]=='c' and their_history[-1]=='b':
             return 'b' # Betray if severely punished last time,
         else:
-            return 'c' # otherwise collude.
+            return 'c' # otherwise collude.'''
+    if len(my_history) == 0:
+        return 'b'
+    if their_history[-1] == 'b' :
+        return 'b'
+    else: 
+        return 'c'
+            
+def move2(my_history, their_history, my_score, their_score):
+    b_history = 0
+    for x in their_history:
+        if x == 'b':    
+            b_history += 1
+        return 'b'
+    if len(my_history) == 0:
+        return 'c'
+    if their_history[-1] == 'b':
+        return 'b'
+    elif len(my_history) < 5 or b_history < 3 : # It's the first round; collude.
+        return 'c'
+        
+def move(my_history, their_history, my_score, their_score):
+    b_history = 0
+    for x in their_history:
+        if x == 'b':    
+            b_history += 1
+        return 'b'
+    if len(my_history) == 0:
+        return 'c'
+    elif their_history[-1] == 'b' and their_history[-2] == 'b':
+        return 'b'
+    elif their_history[-1] == 'c' and their_history[-2] == 'c':
+        return 'c'
+    elif len(my_history) < 5 or b_history < 3 :
+        return 'c' 
+    elif b_history > 3:
+        return 'b'
+    else:
+        return 'c'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
